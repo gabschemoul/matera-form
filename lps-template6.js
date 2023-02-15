@@ -236,7 +236,7 @@ $('.next-button-form.text').keypress(function (event) {
 
 //CP Input //
 
-document.getElementById('zipcode_auto').addEventListener('input', (e) => {
+document.getElementById('zipcode_auto').addEventListener('change', (e) => {
 	console.log("zipcode_auto changed");
 	
 	if (document.getElementById('zipcode_auto').innerHTML.length == 5) {
@@ -410,7 +410,7 @@ $(document).ready(function () {
         for (var i = 0; i < near_place.address_components.length; i++) {
           for (var j = 0; j < near_place.address_components[i].types.length; j++) {
             if (near_place.address_components[i].types[j] == "postal_code") {
-              document.getElementById('zipcode_auto').innerHTML = near_place.address_components[i].long_name;
+              document.getElementById('zipcode_auto').value = near_place.address_components[i].long_name;
 		    console.log("near_place.address_components[i].long_name");
 		    console.log(near_place.address_components[i].long_name);
             }
