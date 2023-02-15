@@ -236,7 +236,7 @@ $('.next-button-form.text').keypress(function (event) {
 
 //CP Input //
 
-$('#zipcode_auto').on('change', function () {
+$('.input-cp').on('change', function () {
   if (document.getElementById('zipcode_auto').innerHTML.length == 5) {
     let question = $(this).closest('.splide__slide').find('.text-label').text()
     let slide = $(this).closest('.splide__slide').index() + 1
