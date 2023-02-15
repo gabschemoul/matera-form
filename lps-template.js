@@ -379,6 +379,8 @@ $(document).ready(function () {
           for (var j = 0; j < near_place.address_components[i].types.length; j++) {
             if (near_place.address_components[i].types[j] == "postal_code") {
               document.getElementById('zipcode_auto').innerHTML = near_place.address_components[i].long_name;
+		    console.log("near_place.address_components[i].long_name");
+		    console.log(near_place.address_components[i].long_name);
             }
           }
         }
@@ -392,6 +394,7 @@ $(document).ready(function () {
 });
 
 $(document).on('change', '#'+searchInput, function () {
+	console.log("searchInput changing")
   document.getElementById('latitude_input').value = '';
   document.getElementById('longitude_input').value = '';
 
