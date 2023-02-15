@@ -236,6 +236,36 @@ $('.next-button-form.text').keypress(function (event) {
 
 //CP Input //
 
+document.getElementById('zipcode_auto').addEventListener('input', (e) => {
+	console.log("zipcode_auto changed");
+	
+	if (document.getElementById('zipcode_auto').innerHTML.length == 5) {
+    let question = $(this).closest('.splide__slide').find('.text-label').text()
+    let slide = $(this).closest('.splide__slide').index() + 1
+    let stepname = $(this).closest('.splide__slide').find('.step-name').text()
+    let reponse = document.getElementById('zipcode_auto').innerHTML
+    $('.error-number').hide()
+    $('.next-button-form.cp').removeClass('not-clickable')
+    dataLayer.push({
+      event: 'question',
+      postalcode: reponse,
+      content: {
+        Question: question,
+        position: slide,
+        reponse: reponse,
+        type: 'codepostal',
+        name: stepname,
+      },
+    })
+    $('.splide__arrow.splide__arrow--next').click()
+	  console.log("yes, response : " + response);
+  } else {
+    $('.error-number').show()
+    $('.next-button-form.cp').addClass('not-clickable')
+	  console.log("no : " + document.getElementById('zipcode_auto').innerHTML + " (" + document.getElementById('zipcode_auto').innerHTML.length + ")");
+  }
+});
+/*
 $('.input-cp').on('change', function () {
   if (document.getElementById('zipcode_auto').innerHTML.length == 5) {
     let question = $(this).closest('.splide__slide').find('.text-label').text()
@@ -262,7 +292,7 @@ $('.input-cp').on('change', function () {
     $('.next-button-form.cp').addClass('not-clickable')
 	  console.log("no : " + document.getElementById('zipcode_auto').innerHTML + " (" + document.getElementById('zipcode_auto').innerHTML.length + ")");
   }
-})
+})*/
 /*
 $('#zipcode_auto').on('change', function () {
   let reponse = document.getElementById('zipcode_auto').innerHTML
