@@ -236,7 +236,7 @@ $('.next-button-form.text').keypress(function (event) {
 
 //CP Input //
 
-$('.input-cp').on('change', function () {
+$('#zipcode_auto').on('change', function () {
   if (document.getElementById('zipcode_auto').innerHTML.length == 5) {
     let question = $(this).closest('.splide__slide').find('.text-label').text()
     let slide = $(this).closest('.splide__slide').index() + 1
@@ -256,13 +256,15 @@ $('.input-cp').on('change', function () {
       },
     })
     $('.splide__arrow.splide__arrow--next').click()
+	  console.log("yes, response : " + response);
   } else {
     $('.error-number').show()
     $('.next-button-form.cp').addClass('not-clickable')
+	  console.log("no : " + document.getElementById('zipcode_auto').innerHTML + " (" + document.getElementById('zipcode_auto').innerHTML.length + ")");
   }
 })
-
-$('.input-cp').on('change', function () {
+/*
+$('#zipcode_auto').on('change', function () {
   let reponse = document.getElementById('zipcode_auto').innerHTML
   let maxnum = $(this).closest('.splide__slide').find('.input-max').text()
   let minnum = $(this).closest('.splide__slide').find('.input-min').text()
@@ -275,7 +277,7 @@ $('.input-cp').on('change', function () {
     $('.error-number').show()
     $(this).closest('.splide__slide').find('.next-button-form').addClass('not-clickable')
   }
-})
+})*/
 //Text input - Data + text
 
 $('.next-button-form.number').on('click', function () {
@@ -387,18 +389,6 @@ $(document).ready(function () {
 
         document.getElementById('loc_lat').value = near_place.geometry.location.lat();
         document.getElementById('loc_long').value = near_place.geometry.location.lng();
-		
-        document.getElementById('latitude_view').innerHTML = near_place.geometry.location.lat();
-        document.getElementById('longitude_view').innerHTML = near_place.geometry.location.lng();
     });
-});
-
-$(document).on('change', '#'+searchInput, function () {
-	console.log("searchInput changing")
-  document.getElementById('latitude_input').value = '';
-  document.getElementById('longitude_input').value = '';
-
-  document.getElementById('latitude_view').innerHTML = '';
-  document.getElementById('longitude_view').innerHTML = '';
 });
 
