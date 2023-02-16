@@ -336,11 +336,11 @@ const processForm = e => {
     event: 'conv',
   })
   data.forEach(v => {
-	  // $("#zipcode_auto").val()
-	  console.log("v[0] : " + v[0]);
-	  console.log("v[1] : " + v[1]);
-    prospect[v[0]] = v[1]
+    prospect[v[0]] = v[0] === "zipcode" ? $("#zipcode_auto").val() : v[1]
   })
+	
+	console.log("prospect");
+		    console.log(prospect);
 /*
   const xhttp = new XMLHttpRequest()
   xhttp.open('POST', 'https://api-hubspot.matera.eu/prospects', true)
