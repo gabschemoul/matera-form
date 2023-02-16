@@ -257,12 +257,14 @@ const changeInput = (e) => {
         name: stepname,
       },
     })
+		console.log("response");
+		console.log(response);
+		console.log("dataLayer");
+		console.log(dataLayer);
     $('.splide__arrow.splide__arrow--next').click()
-	  console.log("yes, response : " + response);
   } else {
     $('.error-number').show()
     $('.next-button-form.cp').addClass('not-clickable')
-	  console.log("no : " + document.getElementById('zipcode_auto').value + " (" + document.getElementById('zipcode_auto').value.length + ")");
   }
 };
 /*
@@ -410,10 +412,7 @@ $(document).ready(function () {
         for (var i = 0; i < near_place.address_components.length; i++) {
           for (var j = 0; j < near_place.address_components[i].types.length; j++) {
             if (near_place.address_components[i].types[j] == "postal_code") {
-              //document.getElementById('zipcode_auto').value = near_place.address_components[i].long_name;
 		    $("#zipcode_auto").val(near_place.address_components[i].long_name).trigger("change")
-		    console.log("near_place.address_components[i].long_name");
-		    console.log(near_place.address_components[i].long_name);
             }
           }
         }
