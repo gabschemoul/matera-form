@@ -248,7 +248,7 @@ const changeInput = (e) => {
     $('.next-button-form.cp').removeClass('not-clickable')
     dataLayer.push({
       event: 'question',
-      postalcode: reponse,
+      postalcode: response,
       content: {
         Question: question,
         position: slide,
