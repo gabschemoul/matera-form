@@ -264,7 +264,7 @@ const changeInput = (e) => {
     $('.next-button-form.cp').addClass('not-clickable')
 	  console.log("no : " + document.getElementById('zipcode_auto').value + " (" + document.getElementById('zipcode_auto').value.length + ")");
   }
-});
+};
 /*
 $('.input-cp').on('change', function () {
   if (document.getElementById('zipcode_auto').innerHTML.length == 5) {
