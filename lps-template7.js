@@ -236,7 +236,7 @@ $('.next-button-form.text').keypress(function (event) {
 
 //CP Input //
 
-const changeInput = (e) => {
+document.getElementById('zipcode_auto').addEventListener('change', {
 	console.log("zipcode_auto changed");
 	
 	if (document.getElementById('zipcode_auto').value.length == 5) {
