@@ -257,10 +257,6 @@ const changeInput = (e) => {
         name: stepname,
       },
     })
-		console.log("response");
-		console.log(response);
-		console.log("dataLayer");
-		console.log(dataLayer);
     $('.splide__arrow.splide__arrow--next').click()
   } else {
     $('.error-number').show()
@@ -342,7 +338,16 @@ const processForm = e => {
   data.forEach(v => {
     prospect[v[0]] = v[1]
   })
-
+	
+	console.log("formData");
+	console.log(formData);
+	console.log("--------");
+	console.log("data");
+	console.log(data);
+	console.log("--------");
+	console.log("prospect");
+	console.log(prospect);
+/*
   const xhttp = new XMLHttpRequest()
   xhttp.open('POST', 'https://api-hubspot.matera.eu/prospects', true)
   xhttp.setRequestHeader('Content-Type', 'application/json')
@@ -376,7 +381,7 @@ const processForm = e => {
 
   xhttp.send(JSON.stringify({ prospect }))
 
-  return false
+  return false*/
 }
 
 // Prevent slider navigation with enter + arrow
