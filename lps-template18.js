@@ -385,7 +385,7 @@ document.getElementById('email-form').addEventListener(
   'keydown',
   function (e) {
     if (
-      ['Space', 'Enter', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(e.code) > -1
+      ['Enter', 'ArrowUp', 'ArrowDown'].indexOf(e.code) > -1
     ) {
       e.preventDefault()
       e.stopPropagation()
