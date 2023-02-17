@@ -237,8 +237,6 @@ $('.next-button-form.text').keypress(function (event) {
 //CP Input //
 
 const changeInput = (e) => {
-	console.log("zipcode_auto changed");
-	
 	if (document.getElementById('zipcode_auto').value.length == 5) {
     let question = $(this).closest('.splide__slide').find('.text-label').text()
     let slide = $(this).closest('.splide__slide').index() + 1
@@ -263,49 +261,7 @@ const changeInput = (e) => {
     $('.next-button-form.cp').addClass('not-clickable')
   }
 };
-/*
-$('.input-cp').on('change', function () {
-  if (document.getElementById('zipcode_auto').innerHTML.length == 5) {
-    let question = $(this).closest('.splide__slide').find('.text-label').text()
-    let slide = $(this).closest('.splide__slide').index() + 1
-    let stepname = $(this).closest('.splide__slide').find('.step-name').text()
-    let reponse = document.getElementById('zipcode_auto').innerHTML
-    $('.error-number').hide()
-    $('.next-button-form.cp').removeClass('not-clickable')
-    dataLayer.push({
-      event: 'question',
-      postalcode: reponse,
-      content: {
-        Question: question,
-        position: slide,
-        reponse: reponse,
-        type: 'codepostal',
-        name: stepname,
-      },
-    })
-    $('.splide__arrow.splide__arrow--next').click()
-	  console.log("yes, response : " + response);
-  } else {
-    $('.error-number').show()
-    $('.next-button-form.cp').addClass('not-clickable')
-	  console.log("no : " + document.getElementById('zipcode_auto').innerHTML + " (" + document.getElementById('zipcode_auto').innerHTML.length + ")");
-  }
-})*/
-/*
-$('#zipcode_auto').on('change', function () {
-  let reponse = document.getElementById('zipcode_auto').innerHTML
-  let maxnum = $(this).closest('.splide__slide').find('.input-max').text()
-  let minnum = $(this).closest('.splide__slide').find('.input-min').text()
 
-  if (reponse > maxnum) {
-    $('.error-number').show()
-    $(this).closest('.splide__slide').find('.next-button-form').addClass('not-clickable')
-  }
-  if (reponse < minnum) {
-    $('.error-number').show()
-    $(this).closest('.splide__slide').find('.next-button-form').addClass('not-clickable')
-  }
-})*/
 //Text input - Data + text
 
 $('.next-button-form.number').on('click', function () {
@@ -339,9 +295,7 @@ const processForm = e => {
     prospect[v[0]] = v[0] === "zipcode" ? $("#zipcode_auto").val() : v[1]
   })
 	
-	console.log("prospect");
-		    console.log(prospect);
-/*
+
   const xhttp = new XMLHttpRequest()
   xhttp.open('POST', 'https://api-hubspot.matera.eu/prospects', true)
   xhttp.setRequestHeader('Content-Type', 'application/json')
@@ -375,7 +329,7 @@ const processForm = e => {
 
   xhttp.send(JSON.stringify({ prospect }))
 
-  return false*/
+  return false
 }
 
 // Prevent slider navigation with enter + arrow
