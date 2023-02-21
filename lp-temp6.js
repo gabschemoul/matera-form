@@ -298,15 +298,8 @@ const processForm = e => {
 		  prospect[v[0]] = v[1]
 	  }
   })
-	console.log("---------------------");
-	console.log("---------------------");
-	console.log("---------------------");
-	console.log(prospect);
-	console.log("---------------------");
-	console.log("---------------------");
-	console.log("---------------------");
 	
-/*
+
   const xhttp = new XMLHttpRequest()
   xhttp.open('POST', 'https://api-hubspot.matera.eu/prospects', true)
   xhttp.setRequestHeader('Content-Type', 'application/json')
@@ -341,7 +334,7 @@ const processForm = e => {
   xhttp.send(JSON.stringify({ prospect }))
 
   return false
-  */
+  
 }
 
 // Prevent slider navigation with enter + arrow
