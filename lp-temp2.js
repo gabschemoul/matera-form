@@ -291,15 +291,26 @@ const processForm = e => {
   dataLayer.push({
     event: 'conv',
   })
+	console.log("---------------------");
   data.forEach(v => {
+	  console.log("v");
+	  console.log(v);
+	  console.log("v[0]");
+	  console.log(v[0]);
+	  console.log("v[1]");
+	  console.log(v[1]);
+	  console.log("-------");
 	  if(v[0] === "addressinput") {
 		  prospect["zipcode"] = $("#zipcode_auto").val()
 	  } else {
 		  prospect[v[0]] = v[1]
 	  }
   })
+	onsole.log("---------------------");
+	onsole.log("---------------------");
+	onsole.log("---------------------");
 	
-
+/*
   const xhttp = new XMLHttpRequest()
   xhttp.open('POST', 'https://api-hubspot.matera.eu/prospects', true)
   xhttp.setRequestHeader('Content-Type', 'application/json')
@@ -334,6 +345,7 @@ const processForm = e => {
   xhttp.send(JSON.stringify({ prospect }))
 
   return false
+  */
 }
 
 // Prevent slider navigation with enter + arrow
