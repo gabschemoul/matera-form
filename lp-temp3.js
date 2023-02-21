@@ -300,15 +300,15 @@ const processForm = e => {
 	  console.log("v[1]");
 	  console.log(v[1]);
 	  console.log("-------");
-	  if(v[0] === "addressinput") {
+	  if(v[0] === "address") {
 		  prospect["zipcode"] = $("#zipcode_auto").val()
 	  } else {
 		  prospect[v[0]] = v[1]
 	  }
   })
-	onsole.log("---------------------");
-	onsole.log("---------------------");
-	onsole.log("---------------------");
+	console.log("---------------------");
+	console.log("---------------------");
+	console.log("---------------------");
 	
 /*
   const xhttp = new XMLHttpRequest()
