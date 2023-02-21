@@ -291,17 +291,8 @@ const processForm = e => {
   dataLayer.push({
     event: 'conv',
   })
-	console.log("---------------------");
   data.forEach(v => {
-	  console.log("v");
-	  console.log(v);
-	  console.log("v[0]");
-	  console.log(v[0]);
-	  console.log("v[1]");
-	  console.log(v[1]);
-	  console.log("-------");
 	  if(v[0] === "address") {
-		  console.log("OUIIIIIIIIIIIII");
 		  prospect["zipcode"] = $("#zipcode_auto").val()
 	  } else {
 		  prospect[v[0]] = v[1]
@@ -310,8 +301,7 @@ const processForm = e => {
 	console.log("---------------------");
 	console.log("---------------------");
 	console.log("---------------------");
-	console.log(prospect["address"]);
-	console.log(prospect["zipcode"]);
+	console.log(prospect);
 	console.log("---------------------");
 	console.log("---------------------");
 	console.log("---------------------");
