@@ -355,6 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const incrementCounter = () => {
+	  console.log("incrementCounter")
     counter += 1;
     zipCodeValidation(counter);
     updateProgressBar(counter);
@@ -365,6 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const incrementCounter2 = () => {
+	  console.log("incrementCounter2")
     counter += 1;
     zipCodeValidation2(counter);
     updateProgressBar2(counter);
@@ -375,6 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 	
 	const decrementCounter = () => {
+		console.log("decrementCounter")
     counter -= 1;
     zipCodeValidation(counter);
     updateProgressBar(counter);
@@ -385,6 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 	
   const decrementCounter2 = () => {
+	  console.log("decrementCounter2")
     counter -= 1;
     zipCodeValidation2(counter);
     updateProgressBar2(counter);
@@ -395,19 +399,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 	
 	if(seoChild.classList.contains('w-condition-invisible')) {
-		if (nextButton) {
-			nextButton.addEventListener("click", incrementCounter);
+		if (document.getElementById("next-button-change-form")) {
+			document.getElementById("next-button-change-form").addEventListener("click", incrementCounter);
 			setNextButtonClass();
 		}
-		if (previousButton)
-    	previousButton.addEventListener("click", decrementCounter);
+		if (document.getElementById("previous-button-change-form2"))
+    			document.getElementById("previous-button-change-form2").addEventListener("click", decrementCounter);
 	} else {
-		if (nextButton2) {
-			nextButton2.addEventListener("click", incrementCounter2);
+		if (document.getElementById("next-button-change-form2")) {
+			document.getElementById("next-button-change-form2").addEventListener("click", incrementCounter2);
 			setNextButtonClass2();
 		}
-		if (previousButton2)
-    	previousButton2.addEventListener("click", decrementCounter2);
+		if (document.getElementById("previous-button-change-form2"))
+    	document.getElementById("previous-button-change-form2").addEventListener("click", decrementCounter2);
 	}
 
 });
@@ -416,6 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 const processForm = (e) => {
+	console.log("processForm");
   if (e.preventDefault) e.preventDefault();
 
   const formData = new FormData(e.target);
@@ -490,6 +495,7 @@ const processForm = (e) => {
 };
 
 const processForm2 = (e) => {
+	console.log("processForm2");
   if (e.preventDefault) e.preventDefault();
 
   const formData = new FormData(e.target);
@@ -563,7 +569,7 @@ const processForm2 = (e) => {
   return false;
 };
 
-	if(seoChild.classList.contains('w-condition-invisible')) {
+	if(document.getElementById("section-hero-seo-child").classList.contains('w-condition-invisible')) {
 		const form = document.getElementById("change-syndic-form");
 		form.addEventListener("submit", processForm);
 		document.getElementById("email-form").addEventListener(
