@@ -113,9 +113,8 @@ function prefillForm() {
         prospect_info[v[0]] = v[1]
       })
         list.forEach(input => 
-          if(input.value === prospect_info[name]) {
-		input.parentElement.classList.add('option-active')
-	}
+          input.value === prospect_info[name] && input.parentElement.classList.add('option-active')
+	
         )
       }
     
@@ -128,9 +127,8 @@ function prefillForm() {
         prospect_info2[v[0]] = v[1]
       })
         list.forEach(input => 
-          if(input.value === prospect_info2[name]) {
-		input.parentElement.classList.add('option-active')
-	}
+          input.value === prospect_info2[name]) && input.parentElement.classList.add('option-active')
+	
         )
       }
     
