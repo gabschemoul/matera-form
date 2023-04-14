@@ -21,6 +21,9 @@ function prefillForm() {
 }
 const htmlCollection = document.getElementsByClassName("radio-button-field");
 const options = Array.from(htmlCollection);
+console.log("options");
+console.log(options);
+console.log("-----------------------");
 const radioButtonWrap = Array.from(
   document.getElementsByClassName("radio-button-wrap")
 );
@@ -48,35 +51,43 @@ document.addEventListener("DOMContentLoaded", () => {
 	const formRoot = document.getElementById("hero-root-form-wrapper");
 	
 	if(seoChild.classList.contains('w-condition-invisible')) {
+		console.log("We're on a Root page")
 		formChild.remove()
+		const nextButton = document.getElementById("next-button-change-form");
+		const previousButton = document.getElementById("previous-button-change-form");
+		const submitButton = document.getElementById("btn-submit-change-syndic");
+		const change_syndic_form = document.getElementById("email-form");
 	} else {
+		console.log("We're on a Child page")
 		formRoot.remove()
+		const nextButton2 = document.getElementById("next-button-change-form2");
+		const previousButton2 = document.getElementById("previous-button-change-form2");
+		const submitButton2 = document.getElementById("btn-submit-change-syndic2");
+		const change_syndic_form2 = document.getElementById("email-form2");
+	}
+	
+	if(seoChild.classList.contains('w-condition-invisible')) {
+
+	} else {
+
 	}
 	
   let counter = 1;
-  const nextButton = document.getElementById("next-button-change-form");
-  const nextButton2 = document.getElementById("next-button-change-form2");
-  const previousButton = document.getElementById("previous-button-change-form");
-  const previousButton2 = document.getElementById(
-    "previous-button-change-form2"
-  );
-  const submitButton = document.getElementById("btn-submit-change-syndic");
-  const submitButton2 = document.getElementById("btn-submit-change-syndic2");
-  const change_syndic_form = document.getElementById("email-form");
-  const change_syndic_form2 = document.getElementById("email-form2");
+  
 
   $(document).on("keypress", function (e) {
     if (e.which == 13) {
-      if (submitButton && counter === LAST_STEP)
-        $("#btn-submit-change-syndic").click();
-      else if (nextButton && counter !== LAST_STEP) {
-        if (counter === 4) {
-          if (!$("#next-button-change-form").hasClass("disable"))
-            $("#next-button-change-form").click();
-        } else $("#next-button-change-form").click();
-      }
-
-      if (submitButton2 && counter === LAST_STEP)
+	if(seoChild.classList.contains('w-condition-invisible')) {
+		if (submitButton && counter === LAST_STEP)
+			$("#btn-submit-change-syndic").click();
+		else if (nextButton && counter !== LAST_STEP) {
+			if (counter === 4) {
+			  if (!$("#next-button-change-form").hasClass("disable"))
+			    $("#next-button-change-form").click();
+			} else $("#next-button-change-form").click();
+		}
+	} else {
+		if (submitButton2 && counter === LAST_STEP)
         $("#btn-submit-change-syndic2").click();
       else if (nextButton2 && counter !== LAST_STEP) {
         if (counter === 4) {
@@ -84,31 +95,42 @@ document.addEventListener("DOMContentLoaded", () => {
             $("#next-button-change-form2").click();
         } else $("#next-button-change-form2").click();
       }
+	}   
     }
   });
-
-  const bar = new ProgressBar.Line(document.getElementById("progress-bar"), {
-    strokeWidth: 20,
-    easing: "easeInOut",
-    duration: 1400,
-    color: "#00CC88",
-    trailColor: "#EEEEEE",
-    trailWidth: 20,
-    svgStyle: { width: "100%", height: "100%" },
-  });
-
-  const bar2 = new ProgressBar.Line(document.getElementById("progress-bar2"), {
-    strokeWidth: 20,
-    easing: "easeInOut",
-    duration: 1400,
-    color: "#00CC88",
-    trailColor: "#EEEEEE",
-    trailWidth: 20,
-    svgStyle: { width: "100%", height: "100%" },
-  });
-
-  bar.animate(0.14);
-  bar2.animate(0.14);
+	
+	
+	
+	
+	if(seoChild.classList.contains('w-condition-invisible')) {
+		
+		const bar = new ProgressBar.Line(document.getElementById("progress-bar"), {
+			strokeWidth: 20,
+			easing: "easeInOut",
+			duration: 1400,
+			color: "#00CC88",
+			trailColor: "#EEEEEE",
+			trailWidth: 20,
+			svgStyle: { width: "100%", height: "15px" },
+		});
+		
+		bar.animate(0.14);
+		
+	} else {
+		
+		const bar2 = new ProgressBar.Line(document.getElementById("progress-bar2"), {
+			strokeWidth: 20,
+			easing: "easeInOut",
+			duration: 1400,
+			color: "#00CC88",
+			trailColor: "#EEEEEE",
+			trailWidth: 20,
+			svgStyle: { width: "100%", height: "15px" },
+		});
+		
+		bar2.animate(0.14);
+		
+	}
 
   const former_management_inputs = Array.from(
     document.getElementsByName("former_management")
@@ -119,6 +141,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const owner_type_inputs = Array.from(
     document.getElementsByName("owner_type")
   );
+	
+	
 
   const addStyleOptionSelected = (list, name) => {
     const change_syndic_form_data = new FormData(change_syndic_form);
@@ -349,16 +373,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setNextButtonClass2();
     lastStepValidation2(counter);
   };
-
-  if (nextButton) {
-    nextButton.addEventListener("click", incrementCounter);
-    setNextButtonClass();
-  }
-  if (nextButton2) {
-    nextButton2.addEventListener("click", incrementCounter2);
-    setNextButtonClass2();
-  }
-  const decrementCounter = () => {
+	
+	const decrementCounter = () => {
     counter -= 1;
     zipCodeValidation(counter);
     updateProgressBar(counter);
@@ -367,6 +383,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setNextButtonClass();
     lastStepValidation(counter);
   };
+	
   const decrementCounter2 = () => {
     counter -= 1;
     zipCodeValidation2(counter);
@@ -376,16 +393,27 @@ document.addEventListener("DOMContentLoaded", () => {
     setNextButtonClass2();
     lastStepValidation2(counter);
   };
-  if (previousButton)
-    previousButton.addEventListener("click", decrementCounter);
-  if (previousButton2)
-    previousButton2.addEventListener("click", decrementCounter2);
+	
+	if(seoChild.classList.contains('w-condition-invisible')) {
+		if (nextButton) {
+			nextButton.addEventListener("click", incrementCounter);
+			setNextButtonClass();
+		}
+		if (previousButton)
+    	previousButton.addEventListener("click", decrementCounter);
+	} else {
+		if (nextButton2) {
+			nextButton2.addEventListener("click", incrementCounter2);
+			setNextButtonClass2();
+		}
+		if (previousButton2)
+    	previousButton2.addEventListener("click", decrementCounter2);
+	}
+
 });
 
 /*----------------------------------*/
 
-const form = document.getElementById("change-syndic-form");
-const form2 = document.getElementById("change-syndic-form2");
 
 const processForm = (e) => {
   if (e.preventDefault) e.preventDefault();
@@ -535,45 +563,50 @@ const processForm2 = (e) => {
   return false;
 };
 
-form.addEventListener("submit", processForm);
-form2.addEventListener("submit", processForm2);
+	if(seoChild.classList.contains('w-condition-invisible')) {
+		const form = document.getElementById("change-syndic-form");
+		form.addEventListener("submit", processForm);
+		document.getElementById("email-form").addEventListener(
+			"keydown",
+			function (e) {
+				if (
+					[
+						"Space",
+						"Enter",
+						"ArrowUp",
+						"ArrowDown",
+						"ArrowLeft",
+						"ArrowRight",
+					].indexOf(e.code) > -1
+				) {
+					e.preventDefault();
+					e.stopPropagation();
+				}
+			},
+			true
+		);
+	} else {
+		const form2 = document.getElementById("change-syndic-form2");
+		form2.addEventListener("submit", processForm2);
+		document.getElementById("email-form2").addEventListener(
+			"keydown",
+			function (e) {
+				if (
+					[
+						"Space",
+						"Enter",
+						"ArrowUp",
+						"ArrowDown",
+						"ArrowLeft",
+						"ArrowRight",
+					].indexOf(e.code) > -1
+				) {
+					e.preventDefault();
+					e.stopPropagation();
+				}
+			},
+			true
+		);
+	}
 
-document.getElementById("email-form").addEventListener(
-  "keydown",
-  function (e) {
-    if (
-      [
-        "Space",
-        "Enter",
-        "ArrowUp",
-        "ArrowDown",
-        "ArrowLeft",
-        "ArrowRight",
-      ].indexOf(e.code) > -1
-    ) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  },
-  true
-);
 
-document.getElementById("email-form2").addEventListener(
-  "keydown",
-  function (e) {
-    if (
-      [
-        "Space",
-        "Enter",
-        "ArrowUp",
-        "ArrowDown",
-        "ArrowLeft",
-        "ArrowRight",
-      ].indexOf(e.code) > -1
-    ) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  },
-  true
-);
