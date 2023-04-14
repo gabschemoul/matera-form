@@ -1,6 +1,6 @@
 
 function prefillForm() {
-    const search = new URLSearchParams(window.location.search)
+    const search = new URLSeabtn-submit-change-syndic2rchParams(window.location.search)
     if (search.has('form_data')) {
       const str = search.get('form_data').replace(/\s/g, '+')
       const data = JSON.parse(atob(str))
@@ -203,7 +203,7 @@ function prefillForm() {
     let phoneValid;
     if (counter === 6) {
       submitButton2.classList.add("disable");
-      let submitVerifications = document.getElementsByClassName('submitverification');
+      let submitVerifications = document.getElementsByClassName('submitverification2');
       for(let s of submitVerifications) {
 				if ($(s).val().length !== 0) {
           validateForm2(submitVerifications)
