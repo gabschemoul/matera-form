@@ -232,7 +232,7 @@ function prefillForm() {
 
 
 
-const form = seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName("change-syndic-form-child")[0] : document.getElementsByClassName("change-syndic-form-root")[0];
+const form = document.getElementsByClassName("section-hero-seo-root")[0].classList.contains('w-condition-invisible') ? document.getElementsByClassName("change-syndic-form-child")[0] : document.getElementsByClassName("change-syndic-form-root")[0];
 
 const processForm = (e) => {
   if (e.preventDefault) e.preventDefault();
@@ -310,7 +310,7 @@ const processForm = (e) => {
 
 form.addEventListener("submit", processForm);
 
-seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName("email-form-child")[0].addEventListener(
+document.getElementsByClassName("section-hero-seo-root")[0].classList.contains('w-condition-invisible') ? document.getElementsByClassName("email-form-child")[0].addEventListener(
   "keydown",
   function (e) {
     if (
