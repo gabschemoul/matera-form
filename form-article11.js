@@ -10,7 +10,7 @@ function prefillForm() {
       })
     }
     if (search.has('returning_client')) {
-      const promo_input = document.getElementById('promo_code')
+      const promo_input = document.getElementsByClassName('inputFormChangeCopro')[0]
       const container = promo_input?.closest('div')
       container?.remove()
       STEPS_NAVIGATION_BUTTON_TOP_PREV.step_6 = 5.65
@@ -22,16 +22,16 @@ function prefillForm() {
  	const radioButtonWrap = Array.from(document.getElementsByClassName('radio-button-wrap'))
 
   document.addEventListener('DOMContentLoaded', () => {
-	  const seoChild = document.getElementById("section-hero-seo-child");
-  const seoRoot = document.getElementById("section-hero-seo-root");
-	const formChild = document.getElementById("hero-child-form-wrapper");
-	const formRoot = document.getElementById("hero-root-form-wrapper");
+	//const seoChild = document.getElementsByClassName("sectionHeroSeoChild")[0];
+  	const seoRoot = document.getElementsByClassName("sectionHeroSeoRoot")[0];
+	//const formChild = document.getElementsByClassName("heroChildFormWrapper")[0];
+	const formRoot = document.getElementsByClassName("heroRootFormWrapper")[0];
 	  
-	  if(seoChild.classList.contains('w-condition-invisible')) {
+	 /* if(seoChild.classList.contains('w-condition-invisible')) {
 		formChild.remove()
 	} else {
 		formRoot.remove()
-	}
+	}*/
 	  prefillForm();
     radioButtonWrap.forEach(wrap => {
       wrap.firstChild.classList.add('option-active')
@@ -49,10 +49,10 @@ function prefillForm() {
 
   document.addEventListener("DOMContentLoaded", () => { 
     let counter = 1
-    const nextButton = document.getElementById("next-button-change-form")
-    const previousButton = document.getElementById("previous-button-change-form")
-    const submitButton = document.getElementById("btn-submit-change-syndic")
- 		const change_syndic_form = document.getElementById('email-form')
+    const nextButton = document.getElementsByClassName("nextButtonChangeForm")[0]
+    const previousButton = document.getElementsByClassName("previousButtonChangeForm")[0]
+    const submitButton = document.getElementsByClassName("btnSubmitRootChangeSyndic")[0]
+    const change_syndic_form = document.getElementsByClassName('emailForm')[0]
     
     $(document).on('keypress',function(e) {
         if(e.which == 13) {
@@ -60,16 +60,16 @@ function prefillForm() {
             	$("#btn-submit-change-syndic").click();
           	else if (nextButton && counter !== LAST_STEP ) {
             	if(counter === 4) {
-              	if(!$("#next-button-change-form").hasClass("disable"))
-                	$("#next-button-change-form").click();
+              	if(!nextButton.hasClass("disable"))
+                	nextButton.click();
               }
               else
-              	$("#next-button-change-form").click();
+              	nextButton.click();
             }
         }
     });
 
- 	const bar = new ProgressBar.Line(document.getElementById("progress-bar"), {
+ 	const bar = new ProgressBar.Line(document.getElemenstByClassName("progressBar")[0], {
         strokeWidth: 20,
         easing: 'easeInOut',
         duration: 1400,
@@ -82,8 +82,8 @@ function prefillForm() {
   	bar.animate(0.14); 
   
     const former_management_inputs = Array.from(document.getElementsByName("former_management"))
-		const number_lots_inputs = Array.from(document.getElementsByName("number_lots"))
-		const owner_type_inputs = Array.from(document.getElementsByName("owner_type"))
+    const number_lots_inputs = Array.from(document.getElementsByName("number_lots"))
+    const owner_type_inputs = Array.from(document.getElementsByName("owner_type"))
     
     const addStyleOptionSelected = (list, name) => {
       const change_syndic_form_data = new FormData(change_syndic_form)
@@ -116,7 +116,7 @@ function prefillForm() {
     for (let v of submitVerifications) {
       if ($(v).val().length == 0) inputsEmpty = true;
     }
-    phoneValid = validatePhone($("#phone_number-2").val());
+    phoneValid = validatePhone(document.getElementsByClassName("inputRootPhone")[0].value);
     if (phoneValid && !inputsEmpty) {
       submitButton.classList.remove("disable");
     } else {
@@ -146,7 +146,7 @@ function prefillForm() {
     const zipCodeValidation = (counter) => {
      if (counter === 4){
     	nextButton.classList.add("disable")
-    	document.getElementById('zipcode-input').onkeyup = function(e) {
+    	document.getElementsByClassName("inputRootZipcode")[0].onkeyup = function(e) {
         if (e.currentTarget.value.length === 5){
         	nextButton.classList.remove("disable")
         } else {
@@ -217,7 +217,7 @@ function prefillForm() {
 
 
 
-const form = document.getElementById("change-syndic-form");
+const form = document.getElementsByClassName("changeRootSyndicForm")[0];
 
 const processForm = (e) => {
   if (e.preventDefault) e.preventDefault();
@@ -309,7 +309,7 @@ const processForm = (e) => {
 
 form.addEventListener("submit", processForm);
 
-document.getElementById("email-form").addEventListener(
+document.getElementsByClassName("emailForm")[0].addEventListener(
   "keydown",
   function (e) {
     if (
