@@ -185,6 +185,7 @@ function prefillForm() {
     
     
     const setHeigthActionsButtons = () => {
+	    console.log("setHeigthActionsButtons")
       if (submitButton && counter === LAST_STEP ) {
         submitButton.style.top = `${STEPS_NAVIGATION_BUTTON_TOP_NEXT[`step_${counter}`]}em`
 				submitButton.style.display = "block"
@@ -195,6 +196,7 @@ function prefillForm() {
     }
 
     const updateProgressBar = (counter) => {
+	    console.log("updateProgressBar")
       bar.animate(STEPS_PROGRESS_BAR[`step_${counter}`]);
     }
     
@@ -209,6 +211,7 @@ function prefillForm() {
     }
     
     const incrementCounter = () => {
+	    console.log("increment counter")
       counter += 1
       zipCodeValidation(counter)
       updateProgressBar(counter)
@@ -223,6 +226,7 @@ function prefillForm() {
       setNextButtonClass();
     }
     const decrementCounter = () => {
+	    console.log("decrement counter")
       counter -= 1
       zipCodeValidation(counter)
       updateProgressBar(counter)
