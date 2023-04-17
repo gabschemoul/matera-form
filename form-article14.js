@@ -10,9 +10,7 @@ function prefillForm() {
       })
     }
     if (search.has('returning_client')) {
-      const promo_input = document.getElementsByClassName('promo-code-root')[0]
-      console.log("promo_input");
-      console.log(promo_input);
+      const promo_input = document.getElementsByClassName("section-hero-seo-root")[0].classList.contains('w-condition-invisible') ? document.getElementsByClassName('promo-code-child')[0] : document.getElementsByClassName('promo-code-root')[0]
       const container = promo_input?.closest('div')
       container?.remove()
       STEPS_NAVIGATION_BUTTON_TOP_PREV.step_6 = 5.65
@@ -51,19 +49,10 @@ function prefillForm() {
 
   document.addEventListener("DOMContentLoaded", () => { 
     let counter = 1
-    const nextButton = document.getElementsByClassName("next-button-change-form-root")[0]
-    const previousButton = document.getElementsByClassName("previous-button-change-form-root")[0]
-    const submitButton = document.getElementsByClassName("btn-submit-change-form-root")[0]
-    const change_syndic_form = document.getElementsByClassName('email-form-root')[0]
-    
-    console.log("nextButton")
-	  console.log(nextButton)
-	  console.log("previousButton")
-	  console.log(previousButton)
-	  console.log("submitButton")
-	  console.log(submitButton)
-	  console.log("change_syndic_form")
-	  console.log(change_syndic_form)
+    const nextButton = seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName("next-button-change-form-child")[0] : document.getElementsByClassName("next-button-change-form-root")[0]
+    const previousButton = seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName("previous-button-change-form-child")[0] : document.getElementsByClassName("previous-button-change-form-root")[0]
+    const submitButton = seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName("btn-submit-change-form-child")[0] : document.getElementsByClassName("btn-submit-change-form-root")[0]
+    const change_syndic_form = seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName('email-form-child')[0] : document.getElementsByClassName('email-form-root')[0]
     
     $(document).on('keypress',function(e) {
         if(e.which == 13) {
@@ -80,7 +69,7 @@ function prefillForm() {
         }
     });
 
- 	const bar = new ProgressBar.Line(document.getElementsByClassName("progress-bar-root")[0], {
+ 	const bar = seoRoot.classList.contains('w-condition-invisible') ? new ProgressBar.Line(document.getElementsByClassName("progress-bar-child")[0], {
         strokeWidth: 20,
         easing: 'easeInOut',
         duration: 1400,
@@ -88,7 +77,15 @@ function prefillForm() {
         trailColor: '#EEEEEE',
         trailWidth: 20,
         svgStyle: {width: '100%', height: '100%'}
-    });
+    }) : new ProgressBar.Line(document.getElementsByClassName("progress-bar-root")[0], {
+        strokeWidth: 20,
+        easing: 'easeInOut',
+        duration: 1400,
+        color: '#00CC88',
+        trailColor: '#EEEEEE',
+        trailWidth: 20,
+        svgStyle: {width: '100%', height: '100%'}
+    })
 
   	bar.animate(0.14); 
   
@@ -127,9 +124,8 @@ function prefillForm() {
     for (let v of submitVerifications) {
       if ($(v).val().length == 0) inputsEmpty = true;
     }
-		console.log("document.getElementsByClassName(input-phone-root)[0].value")
-		console.log(document.getElementsByClassName("input-phone-root")[0].value)
-    phoneValid = validatePhone(document.getElementsByClassName("input-phone-root")[0].value);
+
+    phoneValid = seoRoot.classList.contains('w-condition-invisible') ? validatePhone(document.getElementsByClassName("input-phone-child")[0].value) : validatePhone(document.getElementsByClassName("input-phone-root")[0].value)
     if (phoneValid && !inputsEmpty) {
       submitButton.classList.remove("disable");
     } else {
@@ -142,7 +138,7 @@ function prefillForm() {
     let phoneValid;
     if (counter === 6) {
       submitButton.classList.add("disable");
-      let submitVerifications = document.getElementsByClassName('submitverification');
+      let submitVerifications = seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName('submit-verification-child') : document.getElementsByClassName('submit-verification-root')
       for(let s of submitVerifications) {
 				if ($(s).val().length !== 0) {
           validateForm(submitVerifications)
@@ -159,7 +155,13 @@ function prefillForm() {
     const zipCodeValidation = (counter) => {
      if (counter === 4){
     	nextButton.classList.add("disable")
-    	document.getElementsByClassName("input-zipcode-root")[0].onkeyup = function(e) {
+    	seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName("input-zipcode-child")[0].onkeyup = function(e) {
+        if (e.currentTarget.value.length === 5){
+        	nextButton.classList.remove("disable")
+        } else {
+        	nextButton.classList.add("disable")
+        }
+			} : document.getElementsByClassName("input-zipcode-root")[0].onkeyup = function(e) {
         if (e.currentTarget.value.length === 5){
         	nextButton.classList.remove("disable")
         } else {
@@ -230,28 +232,18 @@ function prefillForm() {
 
 
 
-const form = document.getElementsByClassName("change-syndic-form-root")[0];
+const form = seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName("change-syndic-form-child")[0] : document.getElementsByClassName("change-syndic-form-root")[0];
 
 const processForm = (e) => {
   if (e.preventDefault) e.preventDefault();
-  
-  console.log("PROCESS FORM");
 
   const formData = new FormData(e.target);
   const prospect = {};
   const data = [...formData.entries()];
-  
-  console.log("formData");
-  console.log(formData);
-  console.log("----------------");
 
   data.forEach((v) => {
     prospect[v[0]] = v[1];
   });
-  
-  console.log("prospect début");
-  console.log(prospect);
-  console.log("----------------");
 
   const xhttp = new XMLHttpRequest();
   xhttp.open("POST", "https://api-hubspot.matera.eu/prospects", true);
@@ -284,10 +276,6 @@ const processForm = (e) => {
   prospect.utm_source = Cookies.get("utm_source");
   prospect.utm_medium = Cookies.get("utm_medium");
   prospect.ad_group = Cookies.get("ad_group");
-  
-  console.log("prospect après");
-  console.log(prospect);
-  console.log("----------------");
 
   // Referral
   const search = new URLSearchParams(window.location.search);
@@ -322,7 +310,25 @@ const processForm = (e) => {
 
 form.addEventListener("submit", processForm);
 
-document.getElementsByClassName("email-form-root")[0].addEventListener(
+seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName("email-form-child")[0].addEventListener(
+  "keydown",
+  function (e) {
+    if (
+      [
+        "Space",
+        "Enter",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+      ].indexOf(e.code) > -1
+    ) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  },
+  true
+) : document.getElementsByClassName("email-form-root")[0].addEventListener(
   "keydown",
   function (e) {
     if (
