@@ -23,15 +23,14 @@ function prefillForm() {
  	const radioButtonWrap = Array.from(document.getElementsByClassName('radio-button-wrap'))
 
   document.addEventListener('DOMContentLoaded', () => {
-	//const seoChild = document.getElementsByClassName("sectionHeroSeoChild")[0];
   	const seoRoot = document.getElementsByClassName("section-hero-seo-root")[0];
-	//const formChild = document.getElementsByClassName("heroChildFormWrapper")[0];
-	const formRoot = document.getElementsByClassName("hero-form-wrapper-root")[0];
 	  
 	  if(seoRoot.classList.contains('w-condition-invisible')) {
 		console.log("Sur une page Child")
+		  $('#hero-root-form-wrapper').appendTo('#child-parent')
 	} else {
 		console.log("Sur une page Root")
+		$('#hero-root-form-wrapper').appendTo('#root-parent')
 	}
 	  prefillForm();
     radioButtonWrap.forEach(wrap => {
