@@ -10,7 +10,9 @@ function prefillForm() {
       })
     }
     if (search.has('returning_client')) {
-      const promo_input = document.getElementsByClassName('inputformchangecopro')[0]
+      const promo_input = document.getElementsByClassName('promo-code-root')[0]
+      console.log("promo_input");
+      console.log(promo_input);
       const container = promo_input?.closest('div')
       container?.remove()
       STEPS_NAVIGATION_BUTTON_TOP_PREV.step_6 = 5.65
@@ -23,15 +25,15 @@ function prefillForm() {
 
   document.addEventListener('DOMContentLoaded', () => {
 	//const seoChild = document.getElementsByClassName("sectionHeroSeoChild")[0];
-  	const seoRoot = document.getElementsByClassName("sectionheroseoroot")[0];
+  	const seoRoot = document.getElementsByClassName("section-hero-seo-root")[0];
 	//const formChild = document.getElementsByClassName("heroChildFormWrapper")[0];
-	const formRoot = document.getElementsByClassName("herorootformwrapper")[0];
+	const formRoot = document.getElementsByClassName("hero-form-wrapper-root")[0];
 	  
-	 /* if(seoChild.classList.contains('w-condition-invisible')) {
-		formChild.remove()
+	  if(seoRoot.classList.contains('w-condition-invisible')) {
+		console.log("Sur une page Child")
 	} else {
-		formRoot.remove()
-	}*/
+		console.log("Sur une page Root")
+	}
 	  prefillForm();
     radioButtonWrap.forEach(wrap => {
       wrap.firstChild.classList.add('option-active')
@@ -49,10 +51,19 @@ function prefillForm() {
 
   document.addEventListener("DOMContentLoaded", () => { 
     let counter = 1
-    const nextButton = document.getElementsByClassName("nextbuttonchangeform")[0]
-    const previousButton = document.getElementsByClassName("previousbuttonchangeform")[0]
-    const submitButton = document.getElementsByClassName("btnsubmitrootchangesyndic")[0]
-    const change_syndic_form = document.getElementsByClassName('emailform')[0]
+    const nextButton = document.getElementsByClassName("next-button-change-form-root")[0]
+    const previousButton = document.getElementsByClassName("previous-button-change-form-root")[0]
+    const submitButton = document.getElementsByClassName("btn-submit-change-form-root")[0]
+    const change_syndic_form = document.getElementsByClassName('email-form-root')[0]
+    
+    console.log("nextButton")
+	  console.log(nextButton)
+	  console.log("previousButton")
+	  console.log(previousButton)
+	  console.log("submitButton")
+	  console.log(submitButton)
+	  console.log("change_syndic_form")
+	  console.log(change_syndic_form)
     
     $(document).on('keypress',function(e) {
         if(e.which == 13) {
@@ -69,7 +80,7 @@ function prefillForm() {
         }
     });
 
- 	const bar = new ProgressBar.Line(document.getElementsByClassName("progressbar")[0], {
+ 	const bar = new ProgressBar.Line(document.getElementsByClassName("progress-bar-root")[0], {
         strokeWidth: 20,
         easing: 'easeInOut',
         duration: 1400,
@@ -116,7 +127,9 @@ function prefillForm() {
     for (let v of submitVerifications) {
       if ($(v).val().length == 0) inputsEmpty = true;
     }
-    phoneValid = validatePhone(document.getElementsByClassName("inputrootphone")[0].value);
+		console.log("document.getElementsByClassName(input-phone-root)[0].value")
+		console.log(document.getElementsByClassName("input-phone-root")[0].value)
+    phoneValid = validatePhone(document.getElementsByClassName("input-phone-root")[0].value);
     if (phoneValid && !inputsEmpty) {
       submitButton.classList.remove("disable");
     } else {
@@ -146,7 +159,7 @@ function prefillForm() {
     const zipCodeValidation = (counter) => {
      if (counter === 4){
     	nextButton.classList.add("disable")
-    	document.getElementsByClassName("inputrootzipcode")[0].onkeyup = function(e) {
+    	document.getElementsByClassName("input-zipcode-root")[0].onkeyup = function(e) {
         if (e.currentTarget.value.length === 5){
         	nextButton.classList.remove("disable")
         } else {
@@ -217,7 +230,7 @@ function prefillForm() {
 
 
 
-const form = document.getElementsByClassName("changerootsyndicform")[0];
+const form = document.getElementsByClassName("change-syndic-form-root")[0];
 
 const processForm = (e) => {
   if (e.preventDefault) e.preventDefault();
@@ -309,7 +322,7 @@ const processForm = (e) => {
 
 form.addEventListener("submit", processForm);
 
-document.getElementsByClassName("emailform")[0].addEventListener(
+document.getElementsByClassName("email-form-root")[0].addEventListener(
   "keydown",
   function (e) {
     if (
