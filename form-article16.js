@@ -22,10 +22,7 @@ function prefillForm() {
  	const radioButtonWrap = Array.from(document.getElementsByClassName('radio-button-wrap'))
 
   document.addEventListener('DOMContentLoaded', () => {
-	//const seoChild = document.getElementsByClassName("sectionHeroSeoChild")[0];
   	const seoRoot = document.getElementsByClassName("section-hero-seo-root")[0];
-	//const formChild = document.getElementsByClassName("heroChildFormWrapper")[0];
-	const formRoot = document.getElementsByClassName("hero-form-wrapper-root")[0];
 	  
 	  if(seoRoot.classList.contains('w-condition-invisible')) {
 		console.log("Sur une page Child")
@@ -48,6 +45,7 @@ function prefillForm() {
 
 
   document.addEventListener("DOMContentLoaded", () => { 
+	  const seoRoot = document.getElementsByClassName("section-hero-seo-root")[0];
     let counter = 1
     const nextButton = seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName("next-button-change-form-child")[0] : document.getElementsByClassName("next-button-change-form-root")[0]
     const previousButton = seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName("previous-button-change-form-child")[0] : document.getElementsByClassName("previous-button-change-form-root")[0]
