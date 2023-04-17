@@ -52,6 +52,9 @@ function prefillForm() {
     const submitButton = seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName("btn-submit-change-form-child")[0] : document.getElementsByClassName("btn-submit-change-form-root")[0]
     const change_syndic_form = seoRoot.classList.contains('w-condition-invisible') ? document.getElementsByClassName('email-form-child')[0] : document.getElementsByClassName('email-form-root')[0]
     
+    console.log("nextButton")
+	  console.log(nextButton)
+    
     $(document).on('keypress',function(e) {
         if(e.which == 13) {
             if (submitButton && counter === LAST_STEP )
@@ -66,16 +69,12 @@ function prefillForm() {
             }
         }
     });
-
- 	const bar = seoRoot.classList.contains('w-condition-invisible') ? new ProgressBar.Line(document.getElementsByClassName("progress-bar-child")[0], {
-        strokeWidth: 20,
-        easing: 'easeInOut',
-        duration: 1400,
-        color: '#00CC88',
-        trailColor: '#EEEEEE',
-        trailWidth: 20,
-        svgStyle: {width: '100%', height: '100%'}
-    }) : new ProgressBar.Line(document.getElementsByClassName("progress-bar-root")[0], {
+	  
+	  let bar;
+	  
+	  if(seoRoot.classList.contains('w-condition-invisible')) {
+		  console.log("bar child")
+		  bar = new ProgressBar.Line(document.getElementsByClassName("progress-bar-child")[0], {
         strokeWidth: 20,
         easing: 'easeInOut',
         duration: 1400,
@@ -84,6 +83,18 @@ function prefillForm() {
         trailWidth: 20,
         svgStyle: {width: '100%', height: '100%'}
     })
+	  } else {
+		  console.log("bar root")
+		  bar = new ProgressBar.Line(document.getElementsByClassName("progress-bar-root")[0], {
+        strokeWidth: 20,
+        easing: 'easeInOut',
+        duration: 1400,
+        color: '#00CC88',
+        trailColor: '#EEEEEE',
+        trailWidth: 20,
+        svgStyle: {width: '100%', height: '100%'}
+    })
+	  }
 
   	bar.animate(0.14); 
   
