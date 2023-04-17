@@ -141,7 +141,7 @@ function prefillForm() {
     let phoneValid;
     if (counter === 6) {
       submitButton.classList.add("disable");
-      let submitVerifications = document.getElementsByClassName('submitverification');
+      let submitVerifications = document.getElementsByClassName('submit-verification-root');
       for(let s of submitVerifications) {
 				if ($(s).val().length !== 0) {
           validateForm(submitVerifications)
