@@ -73,7 +73,6 @@ function prefillForm() {
 	  let bar;
 	  
 	  if(seoRoot.classList.contains('w-condition-invisible')) {
-		  console.log("bar child")
 		  bar = new ProgressBar.Line(document.getElementsByClassName("progress-bar-child")[0], {
         strokeWidth: 20,
         easing: 'easeInOut',
@@ -84,7 +83,6 @@ function prefillForm() {
         svgStyle: {width: '100%', height: '100%'}
     })
 	  } else {
-		  console.log("bar root")
 		  bar = new ProgressBar.Line(document.getElementsByClassName("progress-bar-root")[0], {
         strokeWidth: 20,
         easing: 'easeInOut',
@@ -222,6 +220,7 @@ function prefillForm() {
     }
     
     if (nextButton) {
+	    console.log("nextButton true -> nextButton.addEventListener(click, incrementCounter)")
     	nextButton.addEventListener("click", incrementCounter);
       setNextButtonClass();
     }
@@ -235,7 +234,10 @@ function prefillForm() {
       setNextButtonClass()
       lastStepValidation(counter)
     }
-    if (previousButton) previousButton.addEventListener("click", decrementCounter)
+    if (previousButton) {
+	    console.log("previousButton true -> previousButton.addEventListener(click, decrementCounter)")
+	    previousButton.addEventListener("click", decrementCounter)
+    }
   });
 
 
