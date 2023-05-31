@@ -1,6 +1,3 @@
-<script type="text/javascript" src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>
-<script>
-
   function prefillForm() {
     const search = new URLSearchParams(window.location.search)
     if (search.has('form_data')) {
@@ -220,10 +217,7 @@ lastStepValidation(counter)
 }
 if (previousButton) previousButton.addEventListener("click", decrementCounter)
 });
-</script>
 
-
-<script>
   const form = document.getElementById('change-syndic-form')
 
   const processForm = e => {
@@ -299,4 +293,3 @@ if (previousButton) previousButton.addEventListener("click", decrementCounter)
       e.stopPropagation();
     }
   }, true);
-</script>
