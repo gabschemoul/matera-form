@@ -65,6 +65,7 @@
       }
     });
 
+
 const bar = new ProgressBar.Line(document.getElementById("progress-bar"), {
 strokeWidth: 20,
 easing: 'easeInOut',
@@ -75,6 +76,7 @@ trailWidth: 20,
 svgStyle: {width: '100%', height: '100%'}
 });
 
+bar.animate(0.16)
     
 
 const former_management_inputs = Array.from(document.getElementsByName("former_management"))
