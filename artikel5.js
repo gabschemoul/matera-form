@@ -146,7 +146,7 @@ const zipCodeValidation = (counter) => {
 if (counter === 4){
 nextButton.classList.add("disable")
 document.getElementById('zipcode-input').onkeyup = function(e) {
-if (e.currentTarget.value.length > 6 && e.currentTarget.value.length < 13){
+if (e.currentTarget.value.length == 5){
 nextButton.classList.remove("disable")
 } else {
 nextButton.classList.add("disable")
