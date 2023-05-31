@@ -75,7 +75,7 @@ trailWidth: 20,
 svgStyle: {width: '100%', height: '100%'}
 });
 
-    {{wf {&quot;path&quot;:&quot;ignore-question&quot;,&quot;type&quot;:&quot;Bool&quot;\} }} ? bar.animate(0.20) : bar.animate(0.16)
+    
 
 const former_management_inputs = Array.from(document.getElementsByName("former_management"))
 const number_lots_inputs = Array.from(document.getElementsByName("number_lots"))
